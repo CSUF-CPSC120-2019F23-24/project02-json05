@@ -26,20 +26,29 @@ int main()
   // Asks cost of hotel.
   std::cout << "What is the total hotel expense? $";
   std::cin >> hotel;
+  std::string hotel_string;
+  hotel_string = std::to_string(hotel);
+  hotel_string = hotel_string.substr(0, hotel_string.find('.') + 3);
 
   // Asks cost of meal.
   std::cout << "What is the total meal expense? $";
   std::cin >> meal;
+  std::string meal_string;
+  meal_string = std::to_string(meal);
+  meal_string = meal_string.substr(0, meal_string.find('.') + 3);
 
   // Calculate total cost of hotel and meal.
   double total = hotel + meal;
+  std::string total_string;
+  total_string = std::to_string(meal);
+  total_string = total_string.substr(0, total_string.find('.') + 3);
 
   // Skips line for spacing.
   std::cout << '\n';
 
   // Displays trip information.
-  std::cout << "Location" << std::setw(20) << "Days" << std::setw(12) << "Hotel" << std::setw(12) << "Meal" << std::setw(12) << "Total\n";
-  std::cout << location.substr(0, 20) << std::setw(16) << days << std::setw(10) << "$" << hotel << std::setw(10) << "$" << meal << std::setw(10) << "$" << total << '\n';
+  std::cout << std::left << std::setw(15) << "Location" << std::right << std::setw(12) << "Days" << std::setw(12) << "Hotel" << std::setw(12) << "Meal" << std::setw(12) << "Total\n";
+  std::cout << std::left << std::setw(15) << location.substr(0,14) << std::right << std::setw(12) << days << std::setw(7) << "$" << hotel_string << std::setw(7) << "$" << meal_string << std::setw(6) << "$" << total_string << '\n';
 
 return 0;
 }
